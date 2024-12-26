@@ -2,7 +2,7 @@
 
 import useFiltersStore from "@/store/filtersStore";
 import useProductStore from "@/store/productsStore";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 export default function Pagination() {
   const { loading, error, total } = useProductStore();

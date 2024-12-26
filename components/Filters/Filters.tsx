@@ -2,9 +2,21 @@
 
 import useFiltersStore from "@/store/filtersStore";
 import { OrderByEnum, OrderType } from "@/types/filters";
+import { useDebounce } from "@/hooks/useDebounce";
+import { useEffect, useState } from "react";
 
 export default function Filters() {
   const { titleFilter, orderBy, setTitleFilter, setOrderBy, resetFilters } = useFiltersStore();
+  const [ localTitle, setLocalTitle ] = useState(titleFilter);
+  const debouncedTitle = useDebounce(localTitle, 800);
+
+  useEffect(() => {
+    setTitleFilter(debouncedTitle);
+  }, [debouncedTitle]);
+
+  useEffect(() => {
+    setLocalTitle(titleFilter);
+  }, [titleFilter]);
 
   return (
     <section className="w-full mt-2 mb-5 flex flex-col md:flex-row gap-4">
@@ -12,8 +24,8 @@ export default function Filters() {
         <span className="font-semibold">Título</span>
         <input
           type="text"
-          value={titleFilter}
-          onChange={(e) => setTitleFilter(e.target.value)}
+          value={localTitle}
+          onChange={(e) => setLocalTitle(e.target.value)}
           placeholder="Busque un producto..."
           className="w-full px-3 py-2 border border-gray-600 rounded-md text-gray-700"
         />

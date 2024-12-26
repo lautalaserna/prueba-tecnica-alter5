@@ -4,13 +4,11 @@ import useFiltersStore from "@/store/filtersStore";
 import useProductStore from "@/store/productsStore";
 import { Product } from "@/types/products";
 import { useEffect } from "react";
-import { useDebounce } from "@/hooks/useDebounce";
 import { ProductCard } from "@/components";
 
 export default function ProductList() {
   const { products, total, loading, error, filterProducts } = useProductStore();
   const { titleFilter, orderBy, limit, skip } = useFiltersStore();
-  const debouncedTitle = useDebounce(titleFilter, 800);
   
   useEffect(() => {
     let [sort, order] = orderBy.split('_');
@@ -20,7 +18,7 @@ export default function ProductList() {
     }
 
     filterProducts(titleFilter, sort, order, limit, skip);
-  }, [debouncedTitle, orderBy, skip]);
+  }, [titleFilter, orderBy, skip]);
 
   if(loading) return (
     <div className="w-full flex justify-center items-center mt-20">
