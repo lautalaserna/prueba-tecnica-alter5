@@ -1,6 +1,6 @@
 import { Product } from "@/types/products";
 
-const API_URL = 'https://dummyjson.com/products'
+const API_URL = process.env.NEXT_PUBLIC_PRODUCTS_BASE_URL;
 
 export const getProducts = async (title: string, sortBy:string, order:string, limit:number, skip:number) => {
   try {

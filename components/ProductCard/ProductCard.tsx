@@ -1,10 +1,10 @@
-'use cleint';
+'use client';
 
-import { Product } from '@/types/products';
-import Image from 'next/image';
-import { useState } from 'react';
-import DeleteModal from './DeleteModal';
-import useProductStore from '@/store/productsStore';
+import { Product } from "@/types/products";
+import Image from "next/image";
+import { useState } from "react";
+import { DeleteModal } from "@/components";
+import useProductStore from "@/store/productsStore";
 
 interface ProductProps {
   product: Product;

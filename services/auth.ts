@@ -1,10 +1,10 @@
-import { User } from '@/types/users';
-import Cookies from 'js-cookie';
+import { User } from "@/types/users";
+import Cookies from "js-cookie";
 
-const BASE_URL = 'https://dummyjson.com/auth';
+const API_URL = process.env.NEXT_PUBLIC_AUTH_BASE_URL;
 
 export const login = async (username: string, password: string) => {
-  const res = await fetch(`${BASE_URL}/login`, {
+  const res = await fetch(`${API_URL}/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, password }),
@@ -25,7 +25,7 @@ export const getCurrentUser = async (): Promise<User> => {
     throw new Error('Usuario no autenticado');
   }
 
-  const res = await fetch(`${BASE_URL}/me`, {
+  const res = await fetch(`${API_URL}/me`, {
     method: 'GET',
     headers: { Authorization: `Bearer ${token}` },
   });

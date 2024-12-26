@@ -1,3 +1,5 @@
+'use client';
+
 import useProductStore from "@/store/productsStore";
 import { Product } from "@/types/products";
 import { useState } from "react";
@@ -7,7 +9,7 @@ interface AddProductModalProps {
   onClose: () => void;
 }
 
-const AddProductModal: React.FC<AddProductModalProps> = ({ isOpen, onClose }) => {
+export default function AddProductModal({ isOpen, onClose }:AddProductModalProps) {
   const { addProduct } = useProductStore();
   const [formData, setFormData] = useState({title: "", description: "", price: ""});
   const [errors, setErrors] = useState({title: "", description: "", price: ""});
@@ -101,6 +103,4 @@ const AddProductModal: React.FC<AddProductModalProps> = ({ isOpen, onClose }) =>
       </div>
     </div>
   );
-};
-
-export default AddProductModal;
+}

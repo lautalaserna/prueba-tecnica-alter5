@@ -1,13 +1,12 @@
 'use client';
 
-import useFiltersStore from '@/store/filtersStore';
-import useProductStore from '@/store/productsStore';
-import React, { useEffect, useState } from 'react';
+import useFiltersStore from "@/store/filtersStore";
+import useProductStore from "@/store/productsStore";
+import React, { useEffect } from "react";
 
 export default function Pagination() {
-  const [currentPage, setCurrentPage] = useState(1);
   const { loading, error, total } = useProductStore();
-  const { titleFilter, orderBy, limit, setSkip } = useFiltersStore();
+  const { titleFilter, orderBy, limit, currentPage, setSkip, setCurrentPage } = useFiltersStore();
 
   const totalPages = Math.ceil(total / limit);
 

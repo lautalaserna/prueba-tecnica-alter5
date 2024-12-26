@@ -7,9 +7,13 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
+  if(request.nextUrl.pathname === "/" && token) {
+    return NextResponse.redirect(new URL("/products", request.url));
+  }
+
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/products'],
+  matcher: ['/','/products'],
 };
