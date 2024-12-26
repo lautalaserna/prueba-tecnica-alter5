@@ -51,7 +51,7 @@ export default function AddProductModal({ isOpen, onClose }:AddProductModalProps
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="mx-2 bg-white p-6 rounded-lg shadow-lg w-full max-w-2xl">
+      <div className="animate-fade-in-up mx-2 bg-white p-6 rounded-lg shadow-lg w-full max-w-2xl">
         <h2 className="text-xl font-semibold mb-4">Agregar un Producto</h2>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div className="flex flex-col gap-1">
