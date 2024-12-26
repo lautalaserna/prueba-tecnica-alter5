@@ -45,7 +45,7 @@ export default function LoginForm() {
   );
   
   return (
-    <div className="animate-fade-in flex flex-col items-center justify-center min-h-[calc(100vh-100px)]">
+    <div className="flex flex-col items-center justify-center min-h-[calc(100vh-100px)]">
       <div className="min-h-[120px] min-w-[120px] bg-gray-200 rounded-full flex items-center justify-center">
         {userImg && <Image className='cursor-pointer ease-in-out duration-200 hover:scale-105' onClick={handleImgClick} src={userImg} width={120} height={120} alt="Logo" />}
       </div>
