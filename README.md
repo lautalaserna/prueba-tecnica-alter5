@@ -47,7 +47,7 @@ El proyecto utiliza la API de dummyJSON para realizar la autenticación. Esta mi
 ## Decisiones de diseño
 El proyecto utiliza **Next.js** como framework principal, el cual nos provee de funcionalidades como enrutamiento y soporte para renderizado del lado del servidor (SSR), lo que mejora el SEO y el rendimiento de la aplicación.
 
-En esta implementación, el enfoque se centró en el manejo del estado en el cliente para cumplir con los requisitos de la prueba técnica. Por lo tanto, no se utilizó SSR en los componentes que dependen del estado ya que si o si deben estar del lado del cliente. Una posible mejora futura sería trasladar parte de la lógica al servidor y eliminar el manejo de estados en el cliente para aprovechar al máximo las ventajas de SSR que ofrece Next.js.
+En esta implementación, el enfoque se centró en realizar un **manejo del estado en el cliente** para cumplir con los requisitos de la prueba técnica. Por eso, no se utilizó SSR en los componentes que dependen del estado, ya que necesitan renderizarse en el cliente para poder acceder a él. Una posible mejora futura sería trasladar parte de la lógica al servidor y eliminar el manejo de estados en el cliente para aprovechar al máximo las ventajas de SSR que ofrece Next.js.
 
 Debido a esto, se eligió **Zustand** como gestor del estado de la aplicación por las siguientes razones:
 
